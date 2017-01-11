@@ -1,0 +1,10 @@
+{# empty Twig template #}
+{{ form_start(form) }}
+{#{{ form_widget(form) }}#}
+{#{{ form_row(form.name) }}
+#}
+<p style="color:red;">
+    {{ form_label(form.deadline) }}
+{{ form_widget(form.deadline) }}
+</p>
+{{ form_end(form) }}

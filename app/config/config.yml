@@ -42,6 +42,10 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
+        charset: utf8mb4
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
         driver:   pdo_mysql
         host:     "%database_host%"
         port:     "%database_port%"
@@ -59,7 +63,14 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+        auto_mapping: true      
+        mappings:
+              AppBundle:
+                  type: annotation
+                  is_bundle: false
+                  dir: %kernel.root_dir%/../src/AppBundle/Entity/
+                  prefix: AppBundle\Entity
+                  alias: AppBundle
 
 # Swiftmailer Configuration
 swiftmailer:

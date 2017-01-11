@@ -23,11 +23,11 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
-    <parameter key="database_host">127.0.0.1</parameter>
+    <parameter key="database_host">localhost</parameter>
     <parameter key="database_port">null</parameter>
-    <parameter key="database_name">symfony</parameter>
+    <parameter key="database_name">task-manager-symfony</parameter>
     <parameter key="database_user">root</parameter>
-    <parameter key="database_password">null</parameter>
+    <parameter key="database_password">Nima1</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
@@ -433,7 +433,7 @@
                 <tag name="cache.pool" clearer="cache.default_clearer"/>
                 <argument>iW2fPUnhaW</argument>
                 <argument>0</argument>
-                <argument>wllcFT+8pT1YiOlTAoE9yE</argument>
+                <argument>Q+DoJ7jHNQvDJdD+rd8pQk</argument>
                 <argument>/home/ioana/Projects/task-manager-symfony/var/cache/dev/pools</argument>
                 <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                 <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -561,7 +561,7 @@
           <tag name="monolog.logger" channel="cache"/>
           <argument>CvdoFS9U65</argument>
           <argument>null</argument>
-          <argument>wllcFT+8pT1YiOlTAoE9yE</argument>
+          <argument>Q+DoJ7jHNQvDJdD+rd8pQk</argument>
           <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
           <factory class="Symfony\Component\PropertyAccess\PropertyAccessor" method="createCache"/>
         </service>
@@ -582,7 +582,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>kCx35yrt7a</argument>
       <argument>0</argument>
-      <argument>wllcFT+8pT1YiOlTAoE9yE</argument>
+      <argument>Q+DoJ7jHNQvDJdD+rd8pQk</argument>
       <argument>/home/ioana/Projects/task-manager-symfony/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -592,7 +592,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>bV9obG991x</argument>
       <argument>0</argument>
-      <argument>wllcFT+8pT1YiOlTAoE9yE</argument>
+      <argument>Q+DoJ7jHNQvDJdD+rd8pQk</argument>
       <argument>/home/ioana/Projects/task-manager-symfony/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1585,7 +1585,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>586f69252ef013.67576239</argument>
+            <argument>58762c78570d45.86178367</argument>
           </service>
         </argument>
       </argument>
@@ -1733,7 +1733,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>586f69252ef013.67576239</argument>
+            <argument>58762c78570d45.86178367</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2100,15 +2100,18 @@
     <service id="doctrine.dbal.logger.profiling.default" class="Doctrine\DBAL\Logging\DebugStack" public="false"/>
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection">
       <argument type="collection">
+        <argument key="charset">utf8mb4</argument>
         <argument key="driver">pdo_mysql</argument>
-        <argument key="host">127.0.0.1</argument>
+        <argument key="host">localhost</argument>
         <argument key="port">null</argument>
-        <argument key="dbname">symfony</argument>
+        <argument key="dbname">task-manager-symfony</argument>
         <argument key="user">root</argument>
-        <argument key="password">null</argument>
-        <argument key="charset">UTF8</argument>
+        <argument key="password">Nima1</argument>
         <argument key="driverOptions" type="collection"/>
-        <argument key="defaultTableOptions" type="collection"/>
+        <argument key="defaultTableOptions" type="collection">
+          <argument key="charset">utf8mb4</argument>
+          <argument key="collate">utf8mb4_unicode_ci</argument>
+        </argument>
       </argument>
       <argument type="service">
         <service class="Doctrine\DBAL\Configuration" public="false">
@@ -2190,7 +2193,9 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="AppBundle">AppBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service" id="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
@@ -2203,7 +2208,19 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false"/>
+              <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/home/ioana/Projects/task-manager-symfony/src/AppBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>AppBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">
@@ -2626,6 +2643,10 @@
       <call method="addPath">
         <argument>/home/ioana/Projects/task-manager-symfony/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/ioana/Projects/task-manager-symfony/src/AppBundle/Resources/views</argument>
+        <argument>App</argument>
       </call>
       <call method="addPath">
         <argument>/home/ioana/Projects/task-manager-symfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
