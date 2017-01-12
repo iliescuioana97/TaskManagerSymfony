@@ -27,6 +27,35 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         $context = $this->context;
         $request = $this->request;
 
+        if (0 === strpos($pathinfo, '/css')) {
+            if (0 === strpos($pathinfo, '/css/7bdffa0')) {
+                // _assetic_7bdffa0
+                if ($pathinfo === '/css/7bdffa0.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '7bdffa0',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_7bdffa0',);
+                }
+
+                // _assetic_7bdffa0_0
+                if ($pathinfo === '/css/7bdffa0_new_1.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '7bdffa0',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_7bdffa0_0',);
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/css/3e77daa')) {
+                // _assetic_3e77daa
+                if ($pathinfo === '/css/3e77daa.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '3e77daa',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_3e77daa',);
+                }
+
+                // _assetic_3e77daa_0
+                if ($pathinfo === '/css/3e77daa_taskmenu1_1.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '3e77daa',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_3e77daa_0',);
+                }
+
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
@@ -125,20 +154,20 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'AppBundle\\Controller\\ProductController::addTaskAction',  '_route' => 'create',);
             }
 
-            // task_index
+            // task
             if (rtrim($pathinfo, '/') === '/task') {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_task_index;
+                    goto not_task;
                 }
 
                 if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'task_index');
+                    return $this->redirect($pathinfo.'/', 'task');
                 }
 
-                return array (  '_controller' => 'AppBundle\\Controller\\TaskController::indexAction',  '_route' => 'task_index',);
+                return array (  '_controller' => 'AppBundle\\Controller\\TaskController::indexAction',  '_route' => 'task',);
             }
-            not_task_index:
+            not_task:
 
             // task_new
             if ($pathinfo === '/task/new') {

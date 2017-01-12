@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,7 +23,7 @@ class Task {
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -30,14 +31,17 @@ class Task {
     /**
      * @ORM\Column(type="text")
      */
-    private $descriere;
+    private $descriere=NULL;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank()
+     * @Assert\Type("\date")
      */
     private $deadline;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string", length=100)
      */
     private $autor;
@@ -48,6 +52,7 @@ class Task {
     private $executor;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="integer", length=2)
      */
     private $prioritate;

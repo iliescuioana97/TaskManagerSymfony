@@ -17,7 +17,7 @@ class TaskController extends Controller
     /**
      * Lists all task entities.
      *
-     * @Route("/", name="task_index")
+     * @Route("/", name="task")
      * @Method("GET")
      */
     public function indexAction()
@@ -25,8 +25,10 @@ class TaskController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $tasks = $em->getRepository('AppBundle:Task')->findAll();
+        
+        
 
-        return $this->render('task/index.html.twig', array(
+        return $this->render('task/taskmenu1.html.twig', array(
             'tasks' => $tasks,
         ));
     }
@@ -89,7 +91,7 @@ class TaskController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('task_edit', array('id' => $task->getId()));
+            return $this->redirectToRoute('task_show', array('id' => $task->getId()));
         }
 
         return $this->render('task/edit.html.twig', array(

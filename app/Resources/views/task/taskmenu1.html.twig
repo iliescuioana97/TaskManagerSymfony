@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets '@AppBundle/Resources/public/css/taskmenu1.css'filter='cssrewrite' %}
+     
+    <link rel="stylesheet" href="{{ asset_url }}" />
+
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+<div id="taskmenu">
+    <h1 class="taskMenuTitle">Task menu</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="column">No.</th>
+                <th class="column">Name</th>
+                <th class="column">Descriere</th>
+                <th class="column">Deadline</th>
+                <th class="column">Autor</th>
+                <th class="column">Executor</th>
+                <th class="column">Prioritate</th>
+                <th class="column">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <td class="column"><a href="{{ path('task_show', { 'id': task.id }) }}">{{ task.id }}</a></td>
+                    <td class="column">{{ task.name }}</td>
+                    <td class="column">{{ task.descriere }}</td>
+                    <td class="column">{% if task.deadline %}{{ task.deadline|date('Y-m-d') }}{% endif %}</td>
+                    <td class="column">{{ task.autor }}</td>
+                    <td class="column">{{ task.executor }}</td>
+                    <td class="column">{{ task.prioritate }}</td>
+                    <td>
+                       
+                                <a id="btn-show" href="{{ path('task_show', { 'id': task.id }) }}">show</a>
+                            
+                                <a id="btn-edit" class="btn btn-link" href="{{ path('task_edit', { 'id': task.id }) }}">edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   
+            <a id="createNewTask" class="btn btn-primary" href="{{ path('task_new') }}">Create a new task</a>
+            <a id="logOut" class="btn btn-danger" href="{{ path('task_new') }}">Log out</a>
+</div>
+{% endblock %}

@@ -34,10 +34,17 @@ framework:
     php_errors:
         log: true
 
+assetic:
+ debug:          '%kernel.debug%'
+ use_controller: '%kernel.debug%'
+ filters:
+     cssrewrite: ~ 
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+
+
 
 # Doctrine Configuration
 doctrine:
@@ -79,3 +86,4 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    

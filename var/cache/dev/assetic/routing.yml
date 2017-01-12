@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /home/ioana/Projects/task-manager-symfony/app/config/routing_dev.yml

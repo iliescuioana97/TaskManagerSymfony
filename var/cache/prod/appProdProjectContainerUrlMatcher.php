@@ -47,20 +47,20 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
                 return array (  '_controller' => 'AppBundle\\Controller\\ProductController::addTaskAction',  '_route' => 'create',);
             }
 
-            // task_index
+            // task
             if (rtrim($pathinfo, '/') === '/task') {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_task_index;
+                    goto not_task;
                 }
 
                 if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'task_index');
+                    return $this->redirect($pathinfo.'/', 'task');
                 }
 
-                return array (  '_controller' => 'AppBundle\\Controller\\TaskController::indexAction',  '_route' => 'task_index',);
+                return array (  '_controller' => 'AppBundle\\Controller\\TaskController::indexAction',  '_route' => 'task',);
             }
-            not_task_index:
+            not_task:
 
             // task_new
             if ($pathinfo === '/task/new') {

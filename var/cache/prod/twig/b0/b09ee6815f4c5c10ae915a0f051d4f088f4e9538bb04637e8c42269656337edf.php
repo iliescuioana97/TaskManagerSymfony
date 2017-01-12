@@ -28,23 +28,24 @@ class __TwigTemplate_93eae7cc3e514dbbdddf1d6dc71d53d3bd9be16cfea4c05b7e6669de905
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-        ";
+    ";
         // line 6
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 7
-        echo "        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        echo "    <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
-    </head>
-    <body>
-        ";
-        // line 10
-        $this->displayBlock('body', $context, $blocks);
-        // line 11
-        echo "        ";
-        $this->displayBlock('javascripts', $context, $blocks);
+    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">
+
+</head>
+<body>
+";
         // line 12
-        echo "    </body>
+        $this->displayBlock('body', $context, $blocks);
+        // line 13
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 14
+        echo "</body>
 </html>
 ";
     }
@@ -60,12 +61,12 @@ class __TwigTemplate_93eae7cc3e514dbbdddf1d6dc71d53d3bd9be16cfea4c05b7e6669de905
     {
     }
 
-    // line 10
+    // line 12
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 11
+    // line 13
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -82,7 +83,7 @@ class __TwigTemplate_93eae7cc3e514dbbdddf1d6dc71d53d3bd9be16cfea4c05b7e6669de905
 
     public function getDebugInfo()
     {
-        return array (  69 => 11,  64 => 10,  59 => 6,  53 => 5,  47 => 12,  44 => 11,  42 => 10,  35 => 7,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  70 => 13,  65 => 12,  60 => 6,  54 => 5,  48 => 14,  46 => 13,  44 => 12,  35 => 7,  33 => 6,  29 => 5,  23 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
