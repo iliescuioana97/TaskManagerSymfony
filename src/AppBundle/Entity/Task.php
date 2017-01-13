@@ -36,7 +36,6 @@ class Task {
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank()
-     * @Assert\Type("\date")
      */
     private $deadline;
 

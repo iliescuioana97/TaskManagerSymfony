@@ -11,18 +11,17 @@
 
 {% block body %}
     <div id="addtaskform">
-        <h1>Add new task</h1>
+        <h1 id="addnewtasktitle">Add new task</h1>
 
-        <div class="formcomp"> {{ form_start(form) }}
-            {{ form_row(form.name, {'label': 'Name'}) }}
-            {{ form_row(form.descriere, {'label': 'Description'}) }}
-            {{ form_row(form.deadline, {'label': 'Data'}) }}
-            {{ form_row(form.autor, {'label': 'Author'}) }}
-            {{ form_row(form.executor, {'label': 'Executor'}) }}
-            {{ form_row(form.prioritate, {'label': 'Priority'}) }}
-        </div>
+        {{ form_start(form) }}
+            <div class="formcomp"> {{ form_row(form.name, {'label': 'Name:'}) }} </div>
+            <div class="formcomp"> {{ form_row(form.descriere, {'label': 'Description:'}) }} </div>
+            <div class="formcomp"> {{ form_row(form.deadline, {'label': 'Data:'}) }} </div>
+            <div class="formcomp"> {{ form_row(form.autor, {'label': 'Author:'}) }} </div>
+            <div class="formcomp"> {{ form_row(form.executor, {'label': 'Executor:'}) }} </div>
+            <div class="formcomp"> {{ form_row(form.prioritate, {'label': 'Priority:'}) }} </div>
+        <input class="btn btn-primary" id="createbutton" type="submit" value="Create" />
 
         {{ form_end(form) }}
-        <input class="btn btn-primary" type="submit" value="Create" />
     </div>
 {% endblock %}
