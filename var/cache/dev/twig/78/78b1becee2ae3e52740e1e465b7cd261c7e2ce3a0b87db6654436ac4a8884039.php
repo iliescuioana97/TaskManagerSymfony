@@ -15,11 +15,11 @@ class __TwigTemplate_3dcf92d0fe701aa416051e58aa9ff9598564065a89c9fd4ffc12b06603f
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_2a9894dafffb9d379fff3ff7849814236c5897c2a367dea61e8101505394b638 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_2a9894dafffb9d379fff3ff7849814236c5897c2a367dea61e8101505394b638->enter($__internal_2a9894dafffb9d379fff3ff7849814236c5897c2a367dea61e8101505394b638_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/checkbox_widget.html.php"));
+        $__internal_966596d92d33402760cb8b13f2125fbaacc29ba216318afdb3614ed770782dfb = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_966596d92d33402760cb8b13f2125fbaacc29ba216318afdb3614ed770782dfb->enter($__internal_966596d92d33402760cb8b13f2125fbaacc29ba216318afdb3614ed770782dfb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/checkbox_widget.html.php"));
 
-        $__internal_b519e801183df36acb64c1e3fd83ee481bac556684e90f286e3dbe304eea6b34 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b519e801183df36acb64c1e3fd83ee481bac556684e90f286e3dbe304eea6b34->enter($__internal_b519e801183df36acb64c1e3fd83ee481bac556684e90f286e3dbe304eea6b34_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/checkbox_widget.html.php"));
+        $__internal_d3b6d88da415665d830ad55260c2d0b699ad12d09e3c158d177bde853b7ca3e8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d3b6d88da415665d830ad55260c2d0b699ad12d09e3c158d177bde853b7ca3e8->enter($__internal_d3b6d88da415665d830ad55260c2d0b699ad12d09e3c158d177bde853b7ca3e8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Framework/Form/checkbox_widget.html.php"));
 
         // line 1
         echo "<input type=\"checkbox\"
@@ -29,10 +29,10 @@ class __TwigTemplate_3dcf92d0fe701aa416051e58aa9ff9598564065a89c9fd4ffc12b06603f
 />
 ";
         
-        $__internal_2a9894dafffb9d379fff3ff7849814236c5897c2a367dea61e8101505394b638->leave($__internal_2a9894dafffb9d379fff3ff7849814236c5897c2a367dea61e8101505394b638_prof);
+        $__internal_966596d92d33402760cb8b13f2125fbaacc29ba216318afdb3614ed770782dfb->leave($__internal_966596d92d33402760cb8b13f2125fbaacc29ba216318afdb3614ed770782dfb_prof);
 
         
-        $__internal_b519e801183df36acb64c1e3fd83ee481bac556684e90f286e3dbe304eea6b34->leave($__internal_b519e801183df36acb64c1e3fd83ee481bac556684e90f286e3dbe304eea6b34_prof);
+        $__internal_d3b6d88da415665d830ad55260c2d0b699ad12d09e3c158d177bde853b7ca3e8->leave($__internal_d3b6d88da415665d830ad55260c2d0b699ad12d09e3c158d177bde853b7ca3e8_prof);
 
     }
 
